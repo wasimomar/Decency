@@ -68,7 +68,17 @@ export function Footer() {
                 +20 106 632 4076
               </a>
             </li>
-            <li>hello@decency.com</li>
+            <li>
+              <a
+                href="https://www.decency-fashion.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                dir="ltr"
+                className="inline-block hover:text-olive"
+              >
+                https://www.decency-fashion.com
+              </a>
+            </li>
           </ul>
         </div>
       </div>
