@@ -16,7 +16,6 @@ import ProductManager from './ProductManager.jsx'
 import AdminToast from './AdminToast.jsx'
 import AdminLogin from './AdminLogin.jsx'
 import {
-  API_BASE_URL,
   clearAdminAuthSession,
   getCategories,
   getProducts,
@@ -234,24 +233,6 @@ export default function AdminDashboard({ onNavigateToStore }) {
           </button>
         </div>
       </div>
-
-      {/* API Status Indicator */}
-      <div className="rounded-xl border border-sand bg-white/60 p-3.5 text-xs">
-        <div className="flex items-center justify-between text-muted">
-          <span>خادم البيانات (API):</span>
-          <span className="flex items-center gap-1.5 font-medium text-emerald-700">
-            <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-            متصل
-          </span>
-        </div>
-        <p
-          className="mt-1.5 truncate font-mono text-[11px] text-ink/70"
-          dir="ltr"
-          title={API_BASE_URL}
-        >
-          {API_BASE_URL}
-        </p>
-      </div>
     </div>
   )
 
@@ -427,7 +408,7 @@ export default function AdminDashboard({ onNavigateToStore }) {
             />
           )}
 
-          {/* Mobile / Tablet End-of-Page Collapsible Settings & API Status (< lg) */}
+          {/* Mobile / Tablet End-of-Page Collapsible Settings (< lg) */}
           <section className="lg:hidden rounded-2xl border border-sand bg-cream-deep/60 overflow-hidden">
             <button
               type="button"
@@ -436,8 +417,8 @@ export default function AdminDashboard({ onNavigateToStore }) {
               className="flex min-h-12 w-full items-center justify-between px-4 py-3.5 text-start text-sm font-semibold text-ink transition hover:bg-sand/40"
             >
               <div className="flex items-center gap-2.5">
-                <span className="size-2.5 rounded-full bg-emerald-500" />
-                <span>إعدادات واتساب وحالة الخادم (API)</span>
+                <span className="size-2.5 rounded-full bg-olive" />
+                <span>إعدادات رقم واتساب لاستقبال الطلبات</span>
               </div>
               <ChevronDownIcon
                 width={18}
