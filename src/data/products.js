@@ -19,12 +19,17 @@ export const formatPrice = (n, lang = 'ar') => {
 
 // Default WhatsApp number for receiving orders (international format without '+' or '00').
 export const DEFAULT_WHATSAPP_PHONE =
-  import.meta.env.VITE_WHATSAPP_PHONE || '201023910875'
+  import.meta.env.VITE_WHATSAPP_PHONE || '201066324076'
 
 export const getStoreWhatsappPhone = () => {
   try {
     const saved = localStorage.getItem('decency_whatsapp_phone')
-    if (saved && saved.trim() && saved.replace(/\D/g, '') !== '201000000000') {
+    if (
+      saved &&
+      saved.trim() &&
+      saved.replace(/\D/g, '') !== '201000000000' &&
+      saved.replace(/\D/g, '') !== '201023910875'
+    ) {
       return saved.replace(/\D/g, '')
     }
   } catch {

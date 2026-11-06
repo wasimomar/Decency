@@ -73,7 +73,7 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
       role="dialog"
       aria-modal="true"
       aria-labelledby="quick-view-title"
-      className="relative z-10 flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-t-3xl border border-sand bg-cream shadow-2xl sm:rounded-3xl md:grid md:grid-cols-[1.08fr_1fr]"
+      className="relative z-10 flex max-h-[92vh] w-full max-w-3xl flex-col overflow-y-auto rounded-t-3xl border border-sand bg-cream shadow-2xl sm:rounded-3xl md:grid md:grid-cols-[1.08fr_1fr] md:overflow-hidden"
     >
       {/* Mobile drag handle indicator */}
       <div className="flex justify-center pt-2.5 pb-1 md:hidden">
@@ -91,11 +91,11 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
       </button>
 
       {/* Image Gallery */}
-      <div className="flex flex-col bg-cream-deep/60 p-3 sm:p-5">
+      <div className="flex flex-col bg-cream-deep/60 p-2.5 sm:p-5">
         <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative aspect-[4/5] w-full select-none overflow-hidden rounded-2xl border border-sand bg-cream-deep touch-pan-y"
+          className="relative aspect-[3/4] w-full select-none overflow-hidden rounded-2xl border border-sand bg-cream-deep touch-pan-y"
         >
           <img
             key={currentImage}
@@ -107,7 +107,7 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
                 e.currentTarget.src = '/images/cat-isdal.jpg'
               }
             }}
-            className="size-full object-cover transition-opacity duration-300"
+            className="size-full object-contain transition-opacity duration-300"
           />
 
           {/* Image Counter Badge */}
@@ -154,7 +154,7 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
 
         {/* Thumbnails Strip */}
         {images.length > 1 && (
-          <div className="no-scrollbar mt-3 flex items-center gap-2.5 overflow-x-auto pb-1">
+          <div className="no-scrollbar mt-2 sm:mt-3 flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto pb-0.5 sm:pb-1">
             {images.map((imgUrl, idx) => {
               const isSelected = idx === activeIdx
               return (
@@ -163,7 +163,7 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
                   type="button"
                   onClick={() => setActiveIdx(idx)}
                   aria-label={t('quick.thumb', { n: idx + 1 })}
-                  className={`relative size-16 shrink-0 overflow-hidden rounded-xl border-2 transition-all active:scale-95 ${
+                  className={`relative size-10 sm:size-16 shrink-0 overflow-hidden rounded-lg sm:rounded-xl border transition-all active:scale-95 ${
                     isSelected
                       ? 'border-olive ring-2 ring-olive/30 scale-[1.03]'
                       : 'border-sand opacity-65 hover:opacity-100'
@@ -183,8 +183,8 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
       </div>
 
       {/* Product Details */}
-      <div className="flex flex-col justify-between overflow-y-auto p-5 sm:p-7">
-        <div>
+      <div className="flex flex-col justify-between p-4 sm:p-7 md:overflow-y-auto">
+        <div className="pb-4">
           {/* Badges */}
           <div className="flex flex-wrap items-center gap-2">
             {product.isBestSeller && (
@@ -214,12 +214,12 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
             </p>
           )}
 
-          <div className="mt-4 flex items-baseline gap-2 border-b border-sand pb-4">
+          <div className="mt-3 sm:mt-4 flex items-baseline gap-2 border-b border-sand pb-3 sm:pb-4">
             <span className="text-2xl font-bold text-olive">{formatPrice(product.price)}</span>
           </div>
 
           {/* Description */}
-          <div className="mt-4">
+          <div className="mt-3 sm:mt-4">
             <h3 className="text-xs font-semibold text-muted">{t('quick.details')}</h3>
             <p className="mt-1.5 text-sm leading-7 text-ink/85">
               {description || t('quick.defaultDesc')}
@@ -228,7 +228,7 @@ function QuickViewContent({ product, categoryName, subcategoryName, onAdd, onClo
         </div>
 
         {/* Actions Footer */}
-        <div className="mt-6 space-y-3 border-t border-sand pt-5">
+        <div className="sticky bottom-0 z-10 -mx-4 -mb-4 border-t border-sand bg-cream/95 p-4 backdrop-blur-md sm:static sm:mx-0 sm:mb-0 sm:border-t sm:bg-transparent sm:p-0 sm:pt-5 sm:backdrop-blur-none">
           <div className="flex items-center gap-3">
             {/* Quantity Selector */}
             <div className="flex items-center rounded-full border border-sand-dark bg-white px-2 py-1">

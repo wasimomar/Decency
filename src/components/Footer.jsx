@@ -7,7 +7,6 @@ import {
   WhatsappIcon,
 } from './Icons.jsx'
 import Logo from './Logo.jsx'
-import { getStoreWhatsappPhone } from '../data/products.js'
 import { useLanguage } from '../i18n/useLanguage.js'
 
 export function Footer() {
@@ -95,8 +94,7 @@ export function BottomNav({
   const { t, formatNumber } = useLanguage()
 
   const handleContactClick = () => {
-    const phone = getStoreWhatsappPhone()
-    window.open(`https://wa.me/${phone}`, '_blank', 'noopener,noreferrer')
+    window.open('https://wa.me/201066324076', '_blank', 'noopener,noreferrer')
   }
 
   const items = [
